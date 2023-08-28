@@ -2,21 +2,20 @@
 Circ2Tex
 """"""""
 
-Circ2Tex is a very prototypical Python tool to convert quantum circuits (currently only from Qiskit) to tex code (
-currently only based on TikZ) for visualization purposes. The goal is to produce highly configurable code that is easy
+Circ2Tex is a very prototypical Python tool to convert quantum circuits (currently only from `Qiskit <https://qiskit.org/>`_) to LaTeX code (currently only based on `TikZ <https://tikz.dev/>`_) for visualization purposes. The goal is to produce highly configurable code that is easy
 to read or to modify. It is only developed as a hobby project and not regularly maintained.
 
 ============
 Installation
 ============
 
-Clone this repository. Run ``tests/test.py`` to test the program, pdfs are generated in ``tests/out/``.
+Clone this repository. Run ``tests/test.py`` to test the program. If everything works, tex and pdf files are generated in ``tests/out/``.
 
 ===========
 Style files
 ===========
 
-The appearance is controlled by style files in ``json`` format. A few example style files (demonstrating different features)
+The appearance of the circuit visualizations is controlled by style files in ``json`` format. A few example style files (demonstrating different features)
 are included in ``examples/styles``.
 
 ========
