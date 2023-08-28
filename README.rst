@@ -6,7 +6,7 @@ to read or to modify. It is only developed as a hobby project and not regularly 
 
 ## Installation
 
-Clone this repository. Run _tests/test.py_ to test the program, pdfs are generated in _tests/out/_.
+Clone this repository. Run ``tests/test.py`` to test the program, pdfs are generated in ``tests/out/``.
 
 ## Style files
 
@@ -17,37 +17,38 @@ are included.
 
 ### 1. QFT in different styles
 
-```
-OPENQASM 2.0;
-include "qelib1.inc";
-gate gate_QFT q0,q1 { h q1; cp(pi/2) q1,q0; h q0; swap q0,q1; }
-qreg q[2];
-creg meas[2];
-gate_QFT q[0],q[1];
-barrier q[0],q[1];
-measure q[0] -> meas[0];
-measure q[1] -> meas[1];
-```
+.. code-block::
+
+    OPENQASM 2.0;
+    include "qelib1.inc";
+    gate gate_QFT q0,q1 { h q1; cp(pi/2) q1,q0; h q0; swap q0,q1; }
+    qreg q[2];
+    creg meas[2];
+    gate_QFT q[0],q[1];
+    barrier q[0],q[1];
+    measure q[0] -> meas[0];
+    measure q[1] -> meas[1];
 
 .. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-1.png?raw=true
-:alt: Circuit
+    :alt: Circuit
 
-```
-OPENQASM 2.0;
-include "qelib1.inc";
-qreg q[2];
-creg meas[2];
-h q[1];
-cp(pi/2) q[1],q[0];
-h q[0];
-swap q[0],q[1];
-barrier q[0],q[1];
-measure q[0] -> meas[0];
-measure q[1] -> meas[1];
-```
+.. code-block::
+
+    OPENQASM 2.0;
+    include "qelib1.inc";
+    qreg q[2];
+    creg meas[2];
+    h q[1];
+    cp(pi/2) q[1],q[0];
+    h q[0];
+    swap q[0],q[1];
+    barrier q[0],q[1];
+    measure q[0] -> meas[0];
+    measure q[1] -> meas[1];
+
 
 .. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-2.png?raw=true
-:alt: Circuit
+    :alt: Circuit
 
 ### 2. Modification of the code
 
@@ -57,9 +58,9 @@ that a generated automatically for each gate.
 Output:
 
 .. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-3a.png?raw=true
-:alt: Circuit
+    :alt: Circuit
 
 After adding some additional lines of code to the tex file:
 
 .. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-3b.png?raw=true
-:alt: Circuit
+    :alt: Circuit
