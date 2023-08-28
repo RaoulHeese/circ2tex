@@ -29,7 +29,7 @@ measure q[0] -> meas[0];
 measure q[1] -> meas[1];
 ```
 
-.. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-1,png?raw=true
+.. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-1.png?raw=true
 :alt: Circuit
 
 ```
@@ -46,7 +46,7 @@ measure q[0] -> meas[0];
 measure q[1] -> meas[1];
 ```
 
-.. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-2,png?raw=true
+.. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-2.png?raw=true
 :alt: Circuit
 
 ### 2. Modification of the code
@@ -56,10 +56,10 @@ that a generated automatically for each gate.
 
 Output:
 
-.. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-3a,png?raw=true
+.. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-3a.png?raw=true
 :alt: Circuit
 
 After adding some additional lines of code to the tex file:
 
-.. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-3b,png?raw=true
+.. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-3b.png?raw=true
 :alt: Circuit
