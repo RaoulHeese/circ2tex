@@ -17,7 +17,7 @@ Style files
 ===========
 
 The appearance is controlled by style files in ``json`` format. A few example style files (demonstrating different features)
-are included.
+are included in ``examples/styles``.
 
 ========
 Examples
@@ -27,8 +27,12 @@ Examples
 1. QFT in different styles
 --------------------------
 
+The generated tex code changes depending on the chosen style.
+
 QFT as a single gate
 --------------------
+
+QASM code for the circuit:
 
 .. code-block::
 
@@ -42,11 +46,15 @@ QFT as a single gate
     measure q[0] -> meas[0];
     measure q[1] -> meas[1];
 
+Resulting representation in three styles (``plain``, ``dark``, ``sketch``):
+
 .. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-1.png?raw=true
     :alt: Circuit
 
 QFT decomposed into elementary gates
 ------------------------------------
+
+QASM code for the circuit:
 
 .. code-block::
 
@@ -62,6 +70,7 @@ QFT decomposed into elementary gates
     measure q[0] -> meas[0];
     measure q[1] -> meas[1];
 
+Resulting representation in three styles (``plain``, ``dark``, ``sketch``):
 
 .. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-2.png?raw=true
     :alt: Circuit
@@ -102,3 +111,4 @@ After manually adding a few additional lines of code to the tex file using the l
 
 .. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-3b.png?raw=true
     :alt: Circuit
+
