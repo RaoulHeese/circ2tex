@@ -37,7 +37,7 @@
                     "name": "qubit",
                     "num_args": 3,
                     "options": {},
-                    "content": "\\node[bitstyle] at ($(#1)+(-.5,0)$) {$\\mathsf{\\ket{#3}}$}; \\draw[qubitlinestyle] ($(#1)+(-.5,0)$) -- ($(#2)+(.5,0)$);"
+                    "content": "\\node[bitstyle] at ($(#1)+(-.5,0)$) {$q_{#3}$}; \\draw[qubitlinestyle] ($(#1)+(-.5,0)$) -- ($(#2)+(.5,0)$);"
                   }
                 }
               }

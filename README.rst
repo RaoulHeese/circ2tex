@@ -16,7 +16,7 @@ Clone this repository. Run ``tests/test.py`` to test the program, pdfs are gener
 Style files
 ===========
 
-The appearance is controlled by style files in json format. A few example style files (demonstrating different features)
+The appearance is controlled by style files in ``json`` format. A few example style files (demonstrating different features)
 are included.
 
 ========
