@@ -27,6 +27,9 @@ Examples
 1. QFT in different styles
 --------------------------
 
+QFT as a single gate
+--------------------
+
 .. code-block::
 
     OPENQASM 2.0;
@@ -41,6 +44,9 @@ Examples
 
 .. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-1.png?raw=true
     :alt: Circuit
+
+QFT decomposed into elementary gates
+------------------------------------
 
 .. code-block::
 
@@ -64,15 +70,35 @@ Examples
 2. Modification of the code
 ---------------------------
 
-The resulting tex code can be easily modified. For example, annotations can be added conveniently by using TikZ labels
+The generated tex code can be easily modified. Annotations can be added conveniently by using TikZ labels
 that a generated automatically for each gate.
 
-Output:
+For example, consider the following circuit representation:
 
 .. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-3a.png?raw=true
     :alt: Circuit
 
-After adding some additional lines of code to the tex file:
+The corresponding tex code for the gate placement looks like this:
+
+.. code-block:: tex
+
+    % ...
+	% gates
+	% gate #0: h (Q:[4]|C:[]) @ 0 (0-0/4-4)
+	\gateB{r0x0y4}{r0x0y4}{r0x0y4}{r0x0y4}{h}{gate0}
+	% gate #1: cp (Q:[4, 3]|C:[]) @ 0 (1-1/3-4)
+	\gatecB[qal=r0x1y4,qar=r0x1y4,qbl=r0x1y3,qbr=r0x1y3]{r0x1y3}{r0x1y3}{r0x1y4}{r0x1y4}{cp}{gate1}
+	% gate #2: h (Q:[3]|C:[]) @ 0 (2-2/3-3)
+	\gateB{r0x2y3}{r0x2y3}{r0x2y3}{r0x2y3}{h}{gate2}
+	% gate #3: cp (Q:[4, 2]|C:[]) @ 0 (3-3/2-4)
+	\gatecB[qal=r0x3y4,qar=r0x3y4,qbl=r0x3y2,qbr=r0x3y2]{r0x3y2}{r0x3y2}{r0x3y4}{r0x3y4}{cp}{gate3}
+	% gate #4: cp (Q:[3, 2]|C:[]) @ 0 (4-4/2-3)
+	\gatecB[qal=r0x4y3,qar=r0x4y3,qbl=r0x4y2,qbr=r0x4y2]{r0x4y2}{r0x4y2}{r0x4y3}{r0x4y3}{cp}{gate4}
+	% gate #5: h (Q:[2]|C:[]) @ 0 (5-5/2-2)
+	\gateB{r0x5y2}{r0x5y2}{r0x5y2}{r0x5y2}{h}{gate5}
+    % ...
+
+After manually adding a few additional lines of code to the tex file using the labels ``gate0``, ``gate1`` and so on, the annotated circuit representation looks like this:
 
 .. image:: https://github.com/RaoulHeese/circ2tex/blob/main/docs/img/circuits-3b.png?raw=true
     :alt: Circuit
