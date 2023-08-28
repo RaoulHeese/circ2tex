@@ -1,0 +1,587 @@
+{
+  "sketch": {
+    "circuits": {
+      "items": {
+        "*": {
+          "regs": {
+            "qgregs": {
+              "items": {
+                "*": {
+                  "cmd": {
+                    "name": "qreg",
+                    "num_args": 3,
+                    "options": {},
+                    "content": ""
+                  }
+                }
+              }
+            },
+            "cgregs": {
+              "items": {
+                "*": {
+                  "cmd": {
+                    "name": "creg",
+                    "num_args": 3,
+                    "options": {},
+                    "content": ""
+                  }
+                }
+              }
+            }
+          },
+          "bits": {
+            "qubits": {
+              "items": {
+                "*": {
+                  "cmd": {
+                    "name": "qubit",
+                    "num_args": 3,
+                    "options": {},
+                    "content": "\\node[bitstyle] at ($(#1)+(-.5,0)$) {$\\mathsf{\\ket{#3}}$}; \\draw[qubitlinestyle] ($(#1)+(-.5,0)$) -- ($(#2)+(.5,0)$);"
+                  }
+                }
+              }
+            },
+            "clbits": {
+              "items": {
+                "*": {
+                  "cmd": {
+                    "name": "clbit",
+                    "num_args": 3,
+                    "options": {
+                      "n": ""
+                    },
+                    "content": "\\node[bitstyle] at ($(#2)+(-.5,0)$) {}; \\draw[clbitlinestyle] ($(#2)+(-.5,0)$) -- ($(#3)+(.5,0)$);"
+                  }
+                }
+              }
+            }
+          },
+          "gates": {
+            "items": {
+              "*": {
+                "width": 1,
+                "cmd": {
+                  "name": "gateA",
+                  "num_args": 6,
+                  "options": {},
+                  "content": "\\defaultgatenode{($(#1)+(-.25,.25)$)($(#2)+(.25,.25)$)($(#3)+(.25,-.25)$)($(#4)+(-.25,-.25)$)}{#5}{gatenodestyleA}{}{#6}"
+                }
+              },
+              "qft": {
+                "width": 2,
+                "cmd": {
+                  "name": "gateQFT",
+                  "num_args": 6,
+                  "options": {},
+                  "content": "\\defaultgatenode{($(#1)+(-.25,.25)$)($(#2)+(.25,.25)$)($(#3)+(.25,-.25)$)($(#4)+(-.25,-.25)$)}{#5}{gatenodestyleB}{}{#6}"
+                }
+              },
+              "~^h$|i$|^x$|^y$|^z$": {
+                "width": 1,
+                "cmd": {
+                  "name": "gateB",
+                  "num_args": 6,
+                  "options": {},
+                  "content": "\\defaultgatenode{($(#1)+(-.25,.25)$)($(#2)+(.25,.25)$)($(#3)+(.25,-.25)$)($(#4)+(-.25,-.25)$)}{#5}{gatenodestyleB}{}{#6}"
+                }
+              },
+              "~^p$": {
+                "width": 1,
+                "cmd": {
+                  "name": "gateC",
+                  "num_args": 6,
+                  "options": {},
+                  "content": "\\defaultgatenode{($(#1)+(-.25,.25)$)($(#2)+(.25,.25)$)($(#3)+(.25,-.25)$)($(#4)+(-.25,-.25)$)}{#5}{gatenodestyleC}{}{#6}"
+                }
+              },
+              "~^rx$|^ry$|^rz$": {
+                "width": 1,
+                "cmd": {
+                  "name": "gateD",
+                  "num_args": 6,
+                  "options": {},
+                  "content": "\\defaultgatenode{($(#1)+(-.25,.25)$)($(#2)+(.25,.25)$)($(#3)+(.25,-.25)$)($(#4)+(-.25,-.25)$)}{#5}{gatenodestyleD}{}{#6}"
+                }
+              },
+              "~^rxx$|^ryy$|^rzz$": {
+                "width": 1,
+                "cmd": {
+                  "name": "gateE",
+                  "num_args": 6,
+                  "options": {},
+                  "content": "\\defaultgatenode{($(#1)+(-.25,.25)$)($(#2)+(.25,.25)$)($(#3)+(.25,-.25)$)($(#4)+(-.25,-.25)$)}{#5}{gatenodestyleE}{}{#6}"
+                }
+              },
+              "~u": {
+                "width": 1,
+                "cmd": {
+                  "name": "gateG",
+                  "num_args": 6,
+                  "options": {},
+                  "content": "\\defaultgatenode{($(#1)+(-.25,.25)$)($(#2)+(.25,.25)$)($(#3)+(.25,-.25)$)($(#4)+(-.25,-.25)$)}{#5}{gatenodestyleG}{}{#6}"
+                }
+              },
+              "cx": {
+                "width": 1,
+                "cmd": {
+                  "name": "gatecA",
+                  "num_args": 6,
+                  "options": {
+                    "qal": "o",
+                    "qar": "o",
+                    "qbl": "o",
+                    "qbr": "o"
+                  },
+                  "content": "\\controlledgate{$.5*(\\gatecA@qal)+.5*(\\gatecA@qar)$}{$.5*(\\gatecA@qbl)+.5*(\\gatecA@qbr)$}{#6}{gatedotstyleA}{gatedlinestyleA}{gatenodestyleA}{#6}"
+                }
+              },
+              "cp": {
+                "width": 1,
+                "cmd": {
+                  "name": "gatecB",
+                  "num_args": 6,
+                  "options": {
+                    "qal": "o",
+                    "qar": "o",
+                    "qbl": "o",
+                    "qbr": "o"
+                  },
+                  "content": "\\controlledgate{$.5*(\\gatecB@qal)+.5*(\\gatecB@qar)$}{$.5*(\\gatecB@qbl)+.5*(\\gatecB@qbr)$}{#6}{gatedotstyleB}{gatedlinestyleB}{gatenodestyleB}{#7}"
+                }
+              },
+              "~^crx$|^cry$|^crz$": {
+                "width": 1,
+                "cmd": {
+                  "name": "gatecD",
+                  "num_args": 6,
+                  "options": {
+                    "qal": "o",
+                    "qar": "o",
+                    "qbl": "o",
+                    "qbr": "o"
+                  },
+                  "content": "\\controlledgate{$.5*(\\gatecD@qal)+.5*(\\gatecD@qar)$}{$.5*(\\gatecD@qbl)+.5*(\\gatecD@qbr)$}{#6}{gatedotstyleD}{gatedlinestyleD}{gatenodestyleD}{#6}"
+                }
+              },
+              "swap": {
+                "width": 1,
+                "cmd": {
+                  "name": "gateswap",
+                  "num_args": 6,
+                  "options": {},
+                  "content": "\\swapgate{$.5*(#1)+.5*(#2)$}{$.5*(#3)+.5*(#4)$}{gatedotstyleC}{gatedlinestyleC}{#6}"
+                }
+              },
+              "barrier": {
+                "width": 1,
+                "cmd": {
+                  "name": "gatebarrier",
+                  "num_args": 6,
+                  "options": {},
+                  "content": "\\defaultgatenode{($(#1)+(-.25,.25)$)($(#2)+(.25,.25)$)($(#3)+(.25,-.25)$)($(#4)+(-.25,-.25)$)}{#5}{gatenodestyleG}{rotate=90}{#6}"
+                }
+              },
+              "measure": {
+                "width": 1,
+                "cmd": {
+                  "name": "gatemeasure",
+                  "num_args": 6,
+                  "options": {
+                  },
+                  "content": "\\measurementgate{$.5*(#1)+.5*(#2)$}{M}{$.5*(#3)+.5*(#4)$}{gatedlinestyleG}{gatenodestyleG}{#6}"
+                }
+              }
+            }
+          },
+          "width": 12,
+          "row_distance": 1,
+          "merge_clbits": true,
+          "x_scale": 0.75,
+          "y_scale": 0.75,
+          "bg_cmd": {
+            "name": "circuitbg",
+            "num_args": 2,
+            "options": {
+            },
+            "content": ""
+          },
+          "fg_cmd": {
+            "name": "circuitfg",
+            "num_args": 2,
+            "options": {
+            },
+            "content": ""
+          },
+          "preamble": [
+            "\\documentclass{standalone}",
+            "\\usepackage[utf8]{inputenc}",
+            "\\usepackage{tikz,braket}",
+            "\\usetikzlibrary{calc,fit,decorations.pathmorphing}",
+            "\\renewcommand{\\familydefault}{\\sfdefault}"
+          ],
+          "colors": [
+            {
+              "name": "colorshade0",
+              "colormodel": "HTML",
+              "colorcode": "000000"
+            },
+            {
+              "name": "colorshade1",
+              "colormodel": "HTML",
+              "colorcode": "ffffff"
+            },
+            {
+              "name": "colorshadeA",
+              "colormodel": "HTML",
+              "colorcode": "003f5c"
+            },
+            {
+              "name": "colorshadeB",
+              "colormodel": "HTML",
+              "colorcode": "374c80"
+            },
+            {
+              "name": "colorshadeC",
+              "colormodel": "HTML",
+              "colorcode": "7a5195"
+            },
+            {
+              "name": "colorshadeD",
+              "colormodel": "HTML",
+              "colorcode": "bc5090"
+            },
+            {
+              "name": "colorshadeE",
+              "colormodel": "HTML",
+              "colorcode": "ef5675"
+            },
+            {
+              "name": "colorshadeF",
+              "colormodel": "HTML",
+              "colorcode": "ff764a"
+            },
+            {
+              "name": "colorshadeG",
+              "colormodel": "HTML",
+              "colorcode": "ffa600"
+            }
+          ],
+          "styles": [
+            {
+              "name": "pencildrawing",
+              "options": {
+                "decoration": "{random steps,segment length=1pt,amplitude=0.1pt}"
+              },
+              "flags": [
+                "decorate"
+              ]
+            },
+            {
+              "name": "textstyle",
+              "options": {
+                "font": "\\small"
+              },
+              "flags": []
+            },
+            {
+              "name": "bitstyle",
+              "options": {
+                "anchor": "east",
+                "text": "colorshade0"
+              },
+              "flags": [
+                "textstyle"
+              ]
+            },
+            {
+              "name": "qubitlinestyle",
+              "options": {
+                "draw": "colorshade0"
+              },
+              "flags": [
+                "thick",
+                "pencildrawing"
+              ]
+            },
+            {
+              "name": "clbitlinestyle",
+              "options": {
+                "draw": "colorshade0"
+              },
+              "flags": [
+                "thick",
+                "densely dashed",
+                "pencildrawing"
+              ]
+            },
+            {
+              "name": "gatenodestyle",
+              "options": {
+                "inner sep": "0pt"
+              },
+              "flags": [
+                "textstyle",
+                "pencildrawing"
+              ]
+            },
+            {
+              "name": "gatenodestyleA",
+              "options": {
+                "draw": "colorshadeA",
+                "fill": "colorshadeA!50!white",
+                "text": "colorshadeA!50!black"
+              },
+              "flags": [
+                "gatenodestyle"
+              ]
+            },
+            {
+              "name": "gatenodestyleB",
+              "options": {
+                "draw": "colorshadeB",
+                "fill": "colorshadeB!50!white",
+                "text": "colorshadeB!50!black"
+              },
+              "flags": [
+                "gatenodestyle"
+              ]
+            },
+            {
+              "name": "gatenodestyleC",
+              "options": {
+                "draw": "colorshadeC",
+                "fill": "colorshadeC!50!white",
+                "text": "colorshadeC!50!black"
+              },
+              "flags": [
+                "gatenodestyle"
+              ]
+            },
+            {
+              "name": "gatenodestyleD",
+              "options": {
+                "draw": "colorshadeD",
+                "fill": "colorshadeD!50!white",
+                "text": "colorshadeD!50!black"
+              },
+              "flags": [
+                "gatenodestyle"
+              ]
+            },
+            {
+              "name": "gatenodestyleE",
+              "options": {
+                "draw": "colorshadeE",
+                "fill": "colorshadeE!50!white",
+                "text": "colorshadeE!50!black"
+              },
+              "flags": [
+                "gatenodestyle"
+              ]
+            },
+            {
+              "name": "gatenodestyleF",
+              "options": {
+                "draw": "colorshadeF",
+                "fill": "colorshadeF!50!white",
+                "text": "colorshadeF!50!black"
+              },
+              "flags": [
+                "gatenodestyle"
+              ]
+            },
+            {
+              "name": "gatenodestyleG",
+              "options": {
+                "draw": "colorshadeG",
+                "fill": "colorshadeG!50!white",
+                "text": "colorshadeG!50!black"
+              },
+              "flags": [
+                "gatenodestyle"
+              ]
+            },
+            {
+              "name": "gatedotstyle",
+              "options": {
+              },
+              "flags": [
+                "thick",
+                "pencildrawing"
+              ]
+            },
+            {
+              "name": "gatedotstyleA",
+              "options": {
+                "draw": "colorshadeA",
+                "fill": "none"
+              },
+              "flags": [
+                "gatedotstyle"
+              ]
+            },
+            {
+              "name": "gatedotstyleB",
+              "options": {
+                "draw": "colorshadeB",
+                "fill": "none"
+              },
+              "flags": [
+                "gatedotstyle"
+              ]
+            },
+            {
+              "name": "gatedotstyleC",
+              "options": {
+                "draw": "colorshadeC",
+                "fill": "none"
+              },
+              "flags": [
+                "gatedotstyle"
+              ]
+            },
+            {
+              "name": "gatedotstyleD",
+              "options": {
+                "draw": "colorshadeD",
+                "fill": "none"
+              },
+              "flags": [
+                "gatedotstyle"
+              ]
+            },
+            {
+              "name": "gatedotstyleE",
+              "options": {
+                "draw": "colorshadeE",
+                "fill": "none"
+              },
+              "flags": [
+                "gatedotstyle"
+              ]
+            },
+            {
+              "name": "gatedotstyleF",
+              "options": {
+                "draw": "colorshadeF",
+                "fill": "none"
+              },
+              "flags": [
+                "gatedotstyle"
+              ]
+            },
+            {
+              "name": "gatedotstyleG",
+              "options": {
+                "draw": "colorshadeG",
+                "fill": "none"
+              },
+              "flags": [
+                "gatedotstyle"
+              ]
+            },
+            {
+              "name": "gatedlinestyle",
+              "options": {
+              },
+              "flags": [
+                "thick",
+                "pencildrawing"
+              ]
+            },
+            {
+              "name": "gatedlinestyleA",
+              "options": {
+                "draw": "colorshadeA"
+              },
+              "flags": [
+                "gatedlinestyle"
+              ]
+            },
+            {
+              "name": "gatedlinestyleB",
+              "options": {
+                "draw": "colorshadeB"
+              },
+              "flags": [
+                "gatedlinestyle"
+              ]
+            },
+            {
+              "name": "gatedlinestyleC",
+              "options": {
+                "draw": "colorshadeC"
+              },
+              "flags": [
+                "gatedlinestyle"
+              ]
+            },
+            {
+              "name": "gatedlinestyleD",
+              "options": {
+                "draw": "colorshadeD"
+              },
+              "flags": [
+                "gatedlinestyle"
+              ]
+            },
+            {
+              "name": "gatedlinestyleE",
+              "options": {
+                "draw": "colorshadeE"
+              },
+              "flags": [
+                "gatedlinestyle"
+              ]
+            },
+            {
+              "name": "gatedlinestyleF",
+              "options": {
+                "draw": "colorshadeF"
+              },
+              "flags": [
+                "gatedlinestyle"
+              ]
+            },
+            {
+              "name": "gatedlinestyleG",
+              "options": {
+                "draw": "colorshadeG"
+              },
+              "flags": [
+                "gatedlinestyle"
+              ]
+            }
+          ],
+          "cmds": [
+            {
+              "name": "defaultgatenode",
+              "num_args": 5,
+              "options": {},
+              "content": "\\node[fit={#1},#3] (#5) {}; \\node[#3,draw=none,fill=none,#4] (g) at (#5) {#2};"
+            },
+            {
+              "name": "controlledgate",
+              "num_args": 7,
+              "options": {},
+              "content": "\\coordinate (c) at (#1); \\draw[#4] ($(c)+.1*(1,1)$) -- ($(c)+.1*(-1,-1)$); \\draw[#4] ($(c)+.1*(-1,1)$) -- ($(c)+.1*(1,-1)$); \\draw[#5] (c.south) -- (#2); \\defaultgatenode{($(#2)+(-.25,-.25)$)($(#2)+(+.25,+.25)$)}{#3}{#6}{}{#7} %\\node[#4] (c) at (#1) {};"
+            },
+            {
+              "name": "swapgate",
+              "num_args": 5,
+              "options": {},
+              "content": "\\coordinate (c1) at (#1); \\draw[#3] ($(c1)+.1*(1,1)$) -- ($(c1)+.1*(-1,-1)$); \\draw[#3] ($(c1)+.1*(-1,1)$) -- ($(c1)+.1*(1,-1)$); \\coordinate (c2) at (#2); \\draw[#3] ($(c2)+.1*(1,1)$) -- ($(c2)+.1*(-1,-1)$); \\draw[#3] ($(c2)+.1*(-1,1)$) -- ($(c2)+.1*(1,-1)$); \\draw[#4] (c1) -- (c2); \\coordinate (#5) at (c1);"
+            },
+            {
+              "name": "measurementgate",
+              "num_args": 6,
+              "options": {},
+              "content": "\\defaultgatenode{($(#1)+(-.25,-.25)$)($(#1)+(+.25,+.25)$)}{#2}{#5}{}{#6} \\coordinate (m) at (#3); \\draw[#4,->] let \\p1=(#6.south), \\p2=(m) in (\\p1) -- (\\x1,\\y2); \\draw[fill=white,draw=none] (#6.north east) rectangle ($(#6.south east)+(.5,0)$);"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

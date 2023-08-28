@@ -1,0 +1,419 @@
+{
+  "plain": {
+    "circuits": {
+      "items": {
+        "*": {
+          "regs": {
+            "qgregs": {
+              "items": {
+                "*": {
+                  "cmd": {
+                    "name": "qreg",
+                    "num_args": 3,
+                    "options": {},
+                    "content": ""
+                  }
+                }
+              }
+            },
+            "cgregs": {
+              "items": {
+                "*": {
+                  "cmd": {
+                    "name": "creg",
+                    "num_args": 3,
+                    "options": {},
+                    "content": ""
+                  }
+                }
+              }
+            }
+          },
+          "bits": {
+            "qubits": {
+              "items": {
+                "*": {
+                  "cmd": {
+                    "name": "qubit",
+                    "num_args": 3,
+                    "options": {},
+                    "content": "\\node[qubitnodestyle] at ($(#1)+(-.5,0)$) {$\\ket{#3}$}; \\draw[qubitlinestyle] ($(#1)+(-.5,0)$) -- ($(#2)+(.5,0)$);"
+                  }
+                }
+              }
+            },
+            "clbits": {
+              "items": {
+                "*": {
+                  "cmd": {
+                    "name": "clbit",
+                    "num_args": 3,
+                    "options": {
+                      "n": ""
+                    },
+                    "content": "\\node[clbitnodestyle] at ($(#2)+(-.5,0)$) {(\\clbit@n)}; \\draw[clbitlinestyle] ($(#2)+(-.5,0)$) -- ($(#3)+(.5,0)$);"
+                  }
+                }
+              }
+            }
+          },
+          "gates": {
+            "items": {
+              "*": {
+                "width": 1,
+                "cmd": {
+                  "name": "gateb",
+                  "num_args": 6,
+                  "options": {},
+                  "content": "\\defaultgatebox{#1}{#3}{#5}{#6}"
+                }
+              },
+              "~^h$|^x$|^rx$|^ry$|^rz$": {
+                "width": 1,
+                "cmd": {
+                  "name": "gaten",
+                  "num_args": 6,
+                  "options": {},
+                  "content": "\\defaultgatenode{$.5*(#1)+.5*(#3)$}{#5}{#6}"
+                }
+              },
+              "~^cx$|^cp$|^crx$|^cry$|^crz$": {
+                "width": 1,
+                "cmd": {
+                  "name": "gatec",
+                  "num_args": 6,
+                  "options": {
+                    "qal": "o",
+                    "qar": "o",
+                    "qbl": "o",
+                    "qbr": "o"
+                  },
+                  "content": "\\defaultgatenode{$.5*(\\gatec@qbl)+.5*(\\gatec@qbr)$}{x}{cxb}; \\node[gatecdotstyle] (#6) at ($.5*(\\gatec@qal)+.5*(\\gatec@qar)$) {}; \\draw[gateclinestyle] (#6) -- (cxb);"
+                }
+              },
+              "swap": {
+                "width": 1,
+                "cmd": {
+                  "name": "gateswap",
+                  "num_args": 6,
+                  "options": {
+                    "qal": "o",
+                    "qar": "o",
+                    "qbl": "o",
+                    "qbr": "o"
+                  },
+                  "content": "\\swapgatecross{$.5*(\\gateswap@qal)+.5*(\\gateswap@qar)$}{#6-a} \\swapgatecross{$.5*(\\gateswap@qbl)+.5*(\\gateswap@qbr)$}{#6-b} \\draw[gateclinestyle] (#6-a) -- (#6-b);"
+                }
+              },
+              "barrier": {
+                "width": 1,
+                "cmd": {
+                  "name": "gatebarrier",
+                  "num_args": 6,
+                  "options": {},
+                  "content": "\\draw[gatebarrierlinestyle] ($.5*(#1)+.5*(#2)+(0,.25)$) -- ($.5*(#3)+.5*(#4)+(0,-.25)$);"
+                }
+              },
+              "measure": {
+                "width": 1,
+                "cmd": {
+                  "name": "gatemeasure",
+                  "num_args": 6,
+                  "options": {
+                    "cac": ""
+                  },
+                  "content": "\\measurementapparatus{$.5*(#2)+.5*(#3)$} \\draw[gatemeasurelinestyle] let \\p1=(m.south), \\p2=($.5*(#4)+.5*(#5)$) in (\\p1) -- (\\x1,\\y2) node[] (q) {}; \\node[textstyle,anchor=north] (#6) at (q) {\\gatemeasure@cac};"
+                }
+              }
+            }
+          },
+          "width": 0,
+          "row_distance": 1,
+          "merge_clbits": true,
+          "x_scale": 0.75,
+          "y_scale": 0.75,
+          "bg_cmd": {
+            "name": "circuitbg",
+            "num_args": 2,
+            "options": {
+            },
+            "content": ""
+          },
+          "fg_cmd": {
+            "name": "circuitfg",
+            "num_args": 2,
+            "options": {
+            },
+            "content": ""
+          },
+          "preamble": [
+            "\\documentclass{standalone}",
+            "\\usepackage[utf8]{inputenc}",
+            "\\usepackage{tikz,braket}",
+            "\\usetikzlibrary{calc}"
+          ],
+          "colors": [
+            {
+              "name": "qubittextcolor",
+              "colormodel": "RGB",
+              "colorcode": "0,0,0"
+            },
+            {
+              "name": "qubitlinecolor",
+              "colormodel": "RGB",
+              "colorcode": "0,0,0"
+            },
+            {
+              "name": "clbittextcolor",
+              "colormodel": "RGB",
+              "colorcode": "0,0,0"
+            },
+            {
+              "name": "clbitlinecolor",
+              "colormodel": "RGB",
+              "colorcode": "0,0,0"
+            },
+            {
+              "name": "gatedefaultfg",
+              "colormodel": "RGB",
+              "colorcode": "80,80,80"
+            },
+            {
+              "name": "gatedefaultbg",
+              "colormodel": "RGB",
+              "colorcode": "255,255,255"
+            },
+            {
+              "name": "gatecfg",
+              "colormodel": "RGB",
+              "colorcode": "0,0,0"
+            },
+            {
+              "name": "gatecbg",
+              "colormodel": "RGB",
+              "colorcode": "0,0,0"
+            },
+            {
+              "name": "gateswapfg",
+              "colormodel": "RGB",
+              "colorcode": "0,0,0"
+            },
+            {
+              "name": "gatebarrierline",
+              "colormodel": "RGB",
+              "colorcode": "100,100,100"
+            },
+            {
+              "name": "measurementfg",
+              "colormodel": "RGB",
+              "colorcode": "0,0,0"
+            },
+            {
+              "name": "measurementbg",
+              "colormodel": "RGB",
+              "colorcode": "255,255,255"
+            },
+            {
+              "name": "measurementarc",
+              "colormodel": "",
+              "colorcode": "gray"
+            }
+          ],
+          "styles": [
+            {
+              "name": "textstyle",
+              "options": {
+                "font": "\\footnotesize"
+              },
+              "flags": []
+            },
+            {
+              "name": "qubitnodestyle",
+              "options": {
+                "anchor": "east",
+                "text": "qubittextcolor"
+              },
+              "flags": [
+                "textstyle"
+              ]
+            },
+            {
+              "name": "qubitlinestyle",
+              "options": {
+                "draw": "qubitlinecolor"
+              },
+              "flags": [
+              ]
+            },
+            {
+              "name": "clbitnodestyle",
+              "options": {
+                "anchor": "east",
+                "text": "clbittextcolor"
+              },
+              "flags": [
+                "textstyle"
+              ]
+            },
+            {
+              "name": "clbitlinestyle",
+              "options": {
+                "draw": "clbitlinecolor"
+              },
+              "flags": [
+                "double"
+              ]
+            },
+            {
+              "name": "gatedefaultboxstyle",
+              "options": {
+                "draw": "gatedefaultfg",
+                "fill": "gatedefaultbg"
+              },
+              "flags": [
+                "textstyle"
+              ]
+            },
+            {
+              "name": "gatedefaulttextstyle",
+              "options": {},
+              "flags": [
+                "textstyle"
+              ]
+            },
+            {
+              "name": "gatedefaultnodestyle",
+              "options": {
+                "draw": "gatedefaultfg",
+                "fill": "gatedefaultbg",
+                "minimum width": ".7cm",
+                "minimum height": ".7cm"
+              },
+              "flags": [
+                "textstyle"
+              ]
+            },
+            {
+              "name": "gatecdotstyle",
+              "options": {
+                "draw": "gatecfg",
+                "fill": "gatecbg",
+                "inner sep": "0",
+                "minimum width": ".15cm"
+              },
+              "flags": [
+                "circle"
+              ]
+            },
+            {
+              "name": "gateclinestyle",
+              "options": {
+                "draw": "gatecfg"
+              },
+              "flags": [
+              ]
+            },
+            {
+              "name": "swapgatecrossstyle",
+              "options": {
+                "draw": "gateswapfg"
+              },
+              "flags": [
+              ]
+            },
+            {
+              "name": "gatebarrierlinestyle",
+              "options": {
+                "draw": "gatebarrierline"
+              },
+              "flags": [
+                "very thick"
+              ]
+            },
+            {
+              "name": "measurementapparatusdotstyle",
+              "options": {
+                "fill": "measurementfg"
+              },
+              "flags": [
+                "circle"
+              ]
+            },
+            {
+              "name": "measurementapparatusarcstyle",
+              "options": {},
+              "flags": [
+                "measurementarc"
+              ]
+            },
+            {
+              "name": "measurementapparatusboxstyle",
+              "options": {
+                "fill": "measurementbg"
+              },
+              "flags": [
+                "draw"
+              ]
+            },
+            {
+              "name": "measurementapparatusarrowstyle",
+              "options": {
+                ">": "latex"
+              },
+              "flags": [
+                "->"
+              ]
+            },
+            {
+              "name": "gatemeasurelinestyle",
+              "options": {
+                ">": "stealth"
+              },
+              "flags": [
+                "->"
+              ]
+            }
+          ],
+          "cmds": [
+            {
+              "name": "defaultgatebox",
+              "num_args": 4,
+              "options": {},
+              "content": "\\draw[gatedefaultboxstyle] ($(#1)+(-.35,+.35)$) rectangle ($(#2)+(+.35,-.35)$); \\node[gatedefaulttextstyle] (#4) at ($.5*(#1)+.5*(#2)$) {#3};"
+            },
+            {
+              "name": "defaultgatenode",
+              "num_args": 3,
+              "options": {},
+              "content": "\\node[gatedefaultnodestyle] (#3) at (#1) {#2};"
+            },
+            {
+              "name": "cgatedot",
+              "num_args": 6,
+              "options": {},
+              "content": "\\node[cgatestyle] (cxdot) at (#2) {#3};"
+            },
+            {
+              "name": "cgateline",
+              "num_args": 3,
+              "options": {},
+              "content": "\\draw[cgatelinestyle] (#1) -- (#2);"
+            },
+            {
+              "name": "swapgatecross",
+              "num_args": 2,
+              "options": {},
+              "content": "\\coordinate (#2) at (#1); \\draw[swapgatecrossstyle] ($(#2)+.1*(-1,1)$) -- ($(#2)+.1*(1,-1)$); \\draw[swapgatecrossstyle] ($(#2)+.1*(1,1)$) -- ($(#2)+.1*(-1,-1)$);"
+            },
+            {
+              "name": "measurementapparatus",
+              "num_args": 1,
+              "options": {},
+              "content": "\\node[measurementapparatusboxstyle,minimum width=.8cm,minimum height=.45cm,anchor=west] (m) at (#1) {}; \\node[measurementapparatusdotstyle,inner sep=0pt,outer sep=0pt,minimum size=.06cm,xshift=0cm,yshift=-.15cm] (a) at (m) {}; \\draw[measurementapparatusarcstyle] ($(.3,0)+(a)$) arc (0:{0+180}:.3cm); \\draw[measurementapparatusarrowstyle] (a) -- ($(a)+(-.2,.3)$);"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

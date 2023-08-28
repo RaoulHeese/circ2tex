@@ -1,0 +1,103 @@
+{
+  "default": {
+    "circuits": {
+      "items": {
+        "*": {
+          "regs": {
+            "qgregs": {
+              "items": {
+                "*": {
+                  "cmd": {
+                    "name": "qreg",
+                    "num_args": 3,
+                    "options": {},
+                    "content": ""
+                  }
+                }
+              }
+            },
+            "cgregs": {
+              "items": {
+                "*": {
+                  "cmd": {
+                    "name": "creg",
+                    "num_args": 3,
+                    "options": {},
+                    "content": ""
+                  }
+                }
+              }
+            }
+          },
+          "bits": {
+            "qubits": {
+              "items": {
+                "*": {
+                  "cmd": {
+                    "name": "qubit",
+                    "num_args": 3,
+                    "options": {},
+                    "content": "\\node[fill=white,anchor=east] at ($(#1)+(-.5,0)$) {q#3}; \\draw[] ($(#1)+(-.5,0)$) -- ($(#2)+(0,0)$);"
+                  }
+                }
+              }
+            },
+            "clbits": {
+              "items": {
+                "*": {
+                  "cmd": {
+                    "name": "clbit",
+                    "num_args": 3,
+                    "options": {},
+                    "content": "\\node[fill=white,anchor=east] at ($(#1)+(-.5,0)$) {c#3}; \\draw[dotted] ($(#1)+(-.5,0)$) -- ($(#2)+(0,0)$);"
+                  }
+                }
+              }
+            }
+          },
+          "gates": {
+            "items": {
+              "*": {
+                "width": 1,
+                "cmd": {
+                  "name": "gate",
+                  "num_args": 6,
+                  "options": {},
+                  "content": "\\draw[fill=white] ($(#1)+.25*(-1,1)$) rectangle ($(#3)+.25*(1,-1)$); \\StrLen{#5}[\\mylen] \\ifthenelse{\\mylen>2}{\\node[rotate=90] (#6) at ($.5*(#1)+.5*(#3)$) {#5};}{\\node[] (#6) at ($.5*(#1)+.5*(#3)$) {#5};}\""
+                }
+              }
+            }
+          },
+          "width": 0,
+          "row_distance": 1,
+          "merge_clbits": false,
+          "x_scale": 1.0,
+          "y_scale": 1.0,
+          "bg_cmd": {
+            "name": "circuitbg",
+            "num_args": 2,
+            "options": {
+            },
+            "content": ""
+          },
+          "fg_cmd": {
+            "name": "circuitfg",
+            "num_args": 2,
+            "options": {
+            },
+            "content": ""
+          },
+          "preamble": [
+            "\\documentclass{standalone}",
+            "\\usepackage[utf8]{inputenc}",
+            "\\usepackage{tikz,xstring,ifthen}",
+            "\\usetikzlibrary{calc}"
+          ],
+          "colors": [],
+          "styles": [],
+          "cmds": []
+        }
+      }
+    }
+  }
+}
